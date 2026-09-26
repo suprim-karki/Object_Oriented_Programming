@@ -10,6 +10,14 @@ public class Activity4 {
         };
         double catalogueTotal = 0;
 
+        for(int i=0; i<products.length; i++){
+            catalogueTotal+=products[i].getPrice();
 
+            if(products[i].getPrice()>100){
+                System.out.println("Name: "+products[i].getName()+" ,Price: "+products[i].getPrice()+ ", -premium");
+            }else{
+                System.out.println("Name: "+products[i].getName()+" ,Price: "+products[i].getPrice()+ ", -standard");
+            }
         }
     }
+}
