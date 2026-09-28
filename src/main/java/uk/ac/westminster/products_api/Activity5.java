@@ -2,6 +2,8 @@ package uk.ac.westminster.products_api;
 
 public class Activity5 {
 
+//    Here since Activity 5 is continuation of Activity 4, activity 4 is simply renamed and continued as Activity 5.
+
     // Finding most expensive product
     public static Product findMostExpensive(Product[] catalogue){
         Product dearest = catalogue[0];
