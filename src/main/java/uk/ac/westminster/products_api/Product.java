@@ -22,4 +22,12 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
+    public String describe() {
+        if (price > 100) {
+            return "Name: " + name + " ,Price: " + price + ", -premium";
+        } else {
+            return "Name: " + name + " ,Price: " + price + ", -standard";
+        }
+    }
 }
