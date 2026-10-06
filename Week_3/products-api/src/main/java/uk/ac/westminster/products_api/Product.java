@@ -16,6 +16,9 @@ public class Product {
         return id; 
     }
     
+    // After commenting getName, the name field disappeared in the response and no error was shown.
+    // For a large project with several fields, it is difficult to notice it and I would use frontend to help me notice the missing fields.
+
     public String getName() { 
         return name; 
     }
