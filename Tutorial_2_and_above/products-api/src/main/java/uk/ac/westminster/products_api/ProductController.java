@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,5 +36,10 @@ public class ProductController {
     @DeleteMapping("/products/{id}")
         public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
+    }
+
+    @GetMapping("/products/search")
+        public List<Product> search(@RequestParam String name) {
+        return productService.findByName(name);
     }
 }
