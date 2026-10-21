@@ -4,7 +4,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 
 @Service 
@@ -24,5 +26,15 @@ public class ProductService {
         product.setId(nextID++);
         products.add(product);
         return product;
+    }
+
+    public void deleteProduct(Long id) {
+        products.removeIf(p -> p.getId().equals(id));
+    }
+
+    public List<Product> findByName(String name) {
+        return products.stream()
+        .filter(p -> p.getName().contains(name))
+        .toList();
     }
 }
