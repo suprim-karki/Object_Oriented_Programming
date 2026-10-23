@@ -13,6 +13,12 @@ import java.util.ArrayList;
 public class ProductService {
     private List<Product> products = new ArrayList<>();
     private Long nextID = 1L;
+
+    public ProductService(){
+        products.add(new DigitalProduct(nextID++, "Clean Code (E-book)", 29.99, "/downloads/clean-code.pdf",4.2));
+
+        products.add(new PhysicalProduct(nextID++,"27-inch Monitor", 249.99, 5.4,"61cm x 41cm x 18cm"));
+    }
     
     public List<Product> getAllProducts(){
         return products;
