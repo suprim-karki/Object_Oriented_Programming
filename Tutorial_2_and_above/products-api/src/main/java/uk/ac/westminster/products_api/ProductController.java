@@ -28,8 +28,9 @@ public class ProductController {
         return productService.getProductById(id).orElse(null);
     }
     
+    // Temporary fix while Product is abstract: Jackson needs a concrete subclass to deserialise JSON
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product){
+    public Product addProduct(@RequestBody DigitalProduct product) {
         return productService.addProduct(product);
     }
 
