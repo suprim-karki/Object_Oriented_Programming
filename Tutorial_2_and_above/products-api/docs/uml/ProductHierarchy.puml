@@ -1,24 +1,46 @@
 @startuml
 
-class Product {
-    - id : Long
-    - name : String
-    - price : double
-    + getName() : String
-    + getPrice() : double
+abstract class Product {
+  - id: Long
+  - name: String
+  - price: double
+  + {abstract} getSummary(): String
+  + getId(): Long
+  + getName(): String
+  + getPrice(): double
 }
+
+interface Discountable {
+  + applyDiscount(rate: double): void
+  + getDiscountedPrice(): double
+}
+
 class DigitalProduct {
-    - downloadUrl : String
-    - fileSizeMB : double
-    + getDownloadUrl() : String
+  - downloadUrl: String
+  - fileSizeMB: double
+  - discountedPrice: double
+  + getSummary(): String
+  + applyDiscount(rate: double): void
+  + getDiscountedPrice(): double
+  + getDownloadUrl(): String
+  + getFileSizeMB(): double
 }
+
 class PhysicalProduct {
-    - weightKg : double
-    - dimensions : String
-    + getWeightKg() : double
+  - weightKg: double
+  - dimensions: String
+  - discountedPrice: double
+  + getSummary(): String
+  + applyDiscount(rate: double): void
+  + getDiscountedPrice(): double
+  + getWeightKg(): double
+  + getDimensions(): String
 }
 
 Product <|-- DigitalProduct
 Product <|-- PhysicalProduct
+
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
 
 @enduml
